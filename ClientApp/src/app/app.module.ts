@@ -9,8 +9,8 @@ import { AngularMaterialModule } from './material.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
-import { UnderConstructionComponent } from './components/under-construciton/under-construciton';
+import { KanbanPanelComponent } from './components/kanban-panel/kanban-panel.component';
+import { UnderConstructionComponent } from './components/under-construction/under-construction';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
+    KanbanPanelComponent,
     UnderConstructionComponent
   ],
   imports: [
@@ -29,9 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularMaterialModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],

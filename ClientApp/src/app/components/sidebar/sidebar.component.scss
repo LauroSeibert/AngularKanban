@@ -9,6 +9,7 @@
   background: var(--green);
   z-index: 1000;
   transition: 0.3s;
+  box-shadow: 20px 35px 50px #0000001A;
   &.open {
     width: 270px;
   }
@@ -52,6 +53,9 @@
       }
       &:hover{
         background-color: rgba(0,0,0,0.1);
+        &.logo{
+          background-color: transparent;
+        }
       }
       mat-icon, img{
         margin: 0 auto;

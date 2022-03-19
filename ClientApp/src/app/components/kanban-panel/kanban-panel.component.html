@@ -1,0 +1,208 @@
+<div class="content-wrapper">
+  <div class="search-bar-wrapper">
+    <div class="content">
+      <div class="title">
+        <span>Tarefas</span>
+        <div class="flex"><i class="fa-regular fa-clock"></i>5h</div>
+        <div class="default-circle">10</div>
+      </div>
+      <div class="flex">
+        <div class="input-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Pesquisar por Tarefa...">
+        </div>
+        <button mat-raised-button class="cta-filter">
+          FILTRO
+          <i class="fa-solid fa-filter"></i>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>zoom_out_map</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-wrapper">
+    <div cdkDropListGroup class="columns-container">
+      <div class="column">
+        <div class="top">
+          <span class="title">
+            Aguardando
+          </span>
+          <div class="flex">
+            <div class="flex"><i class="fa-regular fa-clock"></i>1h</div>
+            <div class="default-circle">3</div>
+          </div>
+        </div>
+        <div cdkDropList [cdkDropListData]="todo" class="card-list" (cdkDropListDropped)="drop($event)">
+          <div class="card" *ngFor="let item of todo" cdkDrag cdkDragBoundary=".columns-container">
+            <!-- {{item}} -->
+            <div class="sb">
+              <div class="category">
+                DESENVOLVIMENTO
+              </div>
+              <div class="flex-column">
+                <label class="right">Codigo:</label>
+                #12345
+              </div>
+            </div>
+            <span class="title">
+              Criar migration
+            </span>
+            <div class="sb">
+              <div class="flex-column">
+                <label>Projeto:</label>
+                <span class="title">
+                  Company
+                </span>
+              </div>
+              <div class="flex-column">
+                <label class="right">Prevista:</label>
+                <div class="flex">
+                  <i class="fa-regular fa-calendar"></i>
+                  30/12/2021
+                </div>
+              </div>
+            </div>
+            <div class="flex-column">
+              <label>Descrição</label>
+              <span class="description">
+                Usar a branch master, fazer pull, após isso
+              </span>
+            </div>
+            <div class="divider"></div>
+            <div class="sb">
+              <div class="flex">
+                <i class="fa-regular fa-clock"></i>
+                <div class="flex-column">
+                  <label>Previsto</label>
+                  02:30
+                </div>
+              </div>
+              <div class="time-status" [ngClass]="getTimeStatus().color">
+                 {{getTimeStatus().text}}
+              </div>
+            </div>
+            <div class="sb">
+              <div class="flex">
+                <i class="fa-regular fa-clock"></i>
+                <div class="flex-column">
+                  <label>Saldo</label>
+                  <div class="time-status-clock" [ngClass]="getTimeStatus().color">
+                    -00:30
+                  </div>
+                </div>
+              </div>
+              <div class="flex-column">
+                 <label>Equipe:</label>
+                 <div class="flex member-list">
+                   <div class="member">
+                    TF
+                   </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="top">
+          <span class="title">
+            Em andamento
+          </span>
+          <div class="flex">
+            <div class="flex"><i class="fa-regular fa-clock"></i>1h</div>
+            <div class="default-circle">3</div>
+          </div>
+        </div>
+        <div cdkDropList [cdkDropListData]="done" class="card-list" (cdkDropListDropped)="drop($event)">
+          <div class="card" *ngFor="let item of done" cdkDrag cdkDragBoundary=".columns-container">
+            {{item}}
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="top">
+          <span class="title">
+            Pendência
+          </span>
+          <div class="flex">
+            <div class="flex"><i class="fa-regular fa-clock"></i>3h</div>
+            <div class="default-circle">2</div>
+          </div>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="card-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="card" *ngFor="let item of todo" cdkDrag cdkDragBoundary=".columns-container">{{item}}</div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="top">
+          <span class="title">
+            Finalizado
+          </span>
+          <div class="flex">
+            <div class="flex"><i class="fa-regular fa-clock"></i>1h</div>
+            <div class="default-circle">2</div>
+          </div>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="card-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="card" *ngFor="let item of done" cdkDrag cdkDragBoundary=".columns-container">
+            {{item}}
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="top">
+          <span class="title">
+            Outros
+          </span>
+          <div class="flex">
+            <div class="flex"><i class="fa-regular fa-clock"></i>1h</div>
+            <div class="default-circle">3</div>
+          </div>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="card-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="card" *ngFor="let item of done" cdkDrag cdkDragBoundary=".columns-container">{{item}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temp. (C)</th>
+        <th>Temp. (F)</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.date }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table> -->
+</div>
