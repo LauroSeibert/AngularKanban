@@ -1,31 +1,39 @@
-<div class="sidebar-container" [ngClass]="{'open': isExpanded }">
+<div class="sidebar-container" [ngClass]="{'open': isExpanded }" (mouseleave)="isExpanded = false">
   <div class="content">
     <a class="option logo">
       <img src="../../../assets/images/logo.png" alt="Logo">
     </a>
     <a class="option" (click)="toggleSidebar()">
       <mat-icon>menu</mat-icon>
+      Menu
     </a>
-    <a class="option" (click)="toggleSidebar()">
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 0 }" (click)="openSidebar(); selectedTab = 0">
       <mat-icon>dashboard</mat-icon>
+      Dashboard
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <i class="fa-solid fa-calendar-clock"></i>
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 1 }" (click)="openSidebar(); selectedTab = 1">
+      <mat-icon>event</mat-icon>
+      Agenda
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 2 }" (click)="openSidebar(); selectedTab = 2">
+      <mat-icon>ads_click</mat-icon>
+      Oportunidades
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 3 }" (click)="openSidebar(); selectedTab = 3">
+      <mat-icon>assessment</mat-icon>
+      Relatórios
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <mat-icon>add_to_photos</mat-icon>
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 4 }" (click)="openSidebar(); selectedTab = 4">
+      <mat-icon>library_add</mat-icon>
+      Cadastros
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
+    <a class="option" [ngClass]="{ 'active' : selectedTab == 5 }" (click)="openSidebar(); selectedTab = 5">
+      <mat-icon>settings</mat-icon>
+      Configurações
     </a>
-    <a class="option" (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
+    <a class="option add">
+      <mat-icon>add_circle</mat-icon>
+      Adicionar
     </a>
   </div>
 </div>

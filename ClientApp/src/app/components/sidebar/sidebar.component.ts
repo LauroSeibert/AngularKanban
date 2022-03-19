@@ -7,8 +7,19 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
   public isExpanded: boolean = false;
+  public selectedTab: number;
 
-  toggleSidebar() {
+  constructor() { }
+
+  ngOnInit(): void {
+    this.selectedTab = 0;
+  }
+
+  toggleSidebar = () => {
     this.isExpanded = !this.isExpanded;
+  }
+
+  openSidebar = () => {
+    this.isExpanded = true;
   }
 }

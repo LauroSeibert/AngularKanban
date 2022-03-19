@@ -1,0 +1,41 @@
+@import url("../../../assets/styles/_colors.scss");
+
+.content-master{
+  display: flex;
+  overflow: hidden;
+  max-height: 100vh;
+  .column{
+    width: 64px;
+    height: 100vw;
+    box-shadow: 0px 3px 3px var(--padrao-dark-3);
+    cursor: pointer;
+  }
+  .section{
+    transition: 0.5s;
+    overflow: hidden;
+    position: relative;
+    width: 0;
+    &.active{
+      width: 100%;
+    }
+    > *{
+      position: absolute;
+      white-space: nowrap;
+      width: 100%;
+    }
+    // animation-name: showSection;
+    // animation-fill-mode: backwards;
+    // animation-duration: 0.5s;
+    // animation-iteration-count: 1;
+  }
+}
+
+@keyframes showSection {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
