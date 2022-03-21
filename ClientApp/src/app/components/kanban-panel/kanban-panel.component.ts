@@ -55,7 +55,9 @@ export class KanbanPanelComponent {
       this.cards.finalizado = this.dados.filter(q => q.status == 3);
       this.cards.outros = this.dados.filter(q => q.status == 4);
 
-      this.isLoading = false;
+      setTimeout(()=>{
+        this.isLoading = false;
+      }, 200);
     }, error => console.error(error));
   }
 
@@ -92,7 +94,7 @@ export class KanbanPanelComponent {
         event.previousIndex,
         event.currentIndex,
       );
-      event.container.data[event.currentIndex].status = parseInt(event.container.id.charAt(event.container.id.length - 1));
+      event.container.data[event.currentIndex].status = parseInt(event.container.id.charAt(event.container.id.length - 1)) > 4 ? 0 : parseInt(event.container.id.charAt(event.container.id.length - 1));
       this.save(event.container.data[event.currentIndex]);
     }
   }

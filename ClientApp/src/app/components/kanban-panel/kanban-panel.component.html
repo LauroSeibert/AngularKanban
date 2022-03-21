@@ -70,21 +70,15 @@
       <div class="column">
         <div class="top">
           <span class="title">
-            Pendência
+            Pendencia
           </span>
           <div class="flex">
-            <div class="flex"><i class="fa-regular fa-clock"></i>3h</div>
+            <div class="flex"><i class="fa-regular fa-clock"></i>1h</div>
             <div class="default-circle">{{cards.pendencia.length}}</div>
           </div>
         </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="cards.pendencia"
-          class="card-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="card" *ngFor="let item of cards.pendencia" cdkDrag cdkDragBoundary=".columns-container">
-            <app-card [data]="item" *ngFor="let item of cards.pendencia" cdkDrag cdkDragBoundary=".columns-container"></app-card>
-          </div>
+        <div cdkDropList [cdkDropListData]="cards.pendencia" class="card-list" (cdkDropListDropped)="drop($event)">
+          <app-card [data]="item" *ngFor="let item of cards.pendencia" cdkDrag cdkDragBoundary=".columns-container"></app-card>
         </div>
       </div>
 
