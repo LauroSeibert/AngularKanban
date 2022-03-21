@@ -1,6 +1,6 @@
 # AngularKanban
 
-Protótipo de Kanban feito com Asp.NET, Angular e MongoDB.
+Protótipo de Kanban feito com Asp.NET Core, Angular e MongoDB para armazenamento de dados.
 
 Navegação entre as páginas:
 ![showcase1](https://user-images.githubusercontent.com/48037091/159195244-276b963b-c873-430e-a0b2-ae1de532cc37.gif)
