@@ -1,0 +1,132 @@
+@import url("../../../../assets/styles/_colors.scss");
+
+@mixin setColors($bg, $color) {
+  background-color: $bg;
+  color: $color;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  background: white;
+  color: var(--padrao-dark);
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  width: 320px;
+  .sb{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .category{
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--padrao-dark-2);
+      border: 1px solid var(--padrao-dark-2);
+      border-radius: 5px;
+      padding: 3px;
+    }
+    .flex{
+      column-gap: 10px;
+    }
+    .fa-calendar{
+      font-size: 18px;
+      margin-top: -7px;
+    }
+  }
+  .title{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .description {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+  }
+  label{
+    font-size: 11px;
+    color: var(--padrao-dark-2);
+    margin-bottom: -3px;
+    display: flex;
+    pointer-events: none;
+    &.right{
+      justify-content: flex-end;
+    }
+  }
+  .divider{
+    width: 100%;
+    position: relative;
+    height: 20px;
+    display: flex;
+    &::after{
+      content: "Acompanhamento";
+      position: absolute;
+      left: 0;
+      height: 12px;
+      color: var(--padrao-dark-2);
+      background: white;
+      padding: 0 3px;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 319px;
+      height: 1px;
+      background-color: var(--padrao-grey);
+      top: 10px;
+      left: -20px
+    }
+  }
+  .fa-clock{
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  .time-status{
+    height: 24px;
+    display: flex;
+    text-align: center;
+    padding: 0 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    align-items: center;
+    @include setColors(var(--green-dark), white)
+  }
+  .time-status-clock{
+    display: flex;
+    text-align: center;
+    padding: 0px 8px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    align-items: center;
+    border: 2px solid var(--green-dark);
+    font-weight: 600;
+    margin-top: 1px;
+    color: var(--green-dark);
+    @include setColors(white, var(--green-dark))
+  }
+  .member-list{
+    justify-content: flex-end;
+    margin-top: 3px;
+    .member{
+      border-radius: 50%;
+      @include setColors(var(--padrao-dark-2), white);
+      height: 20px;
+      width: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: grid;
+      place-items: center;
+    }
+  }
+}
+

@@ -44,10 +44,11 @@
           position: relative;
           height: 100%;
           width: 500px;
+          display: flex;
           input{
             height: 100%;
             padding-left: 40px;
-            width: 100%;
+            flex: 1 0 auto;
             &::placeholder{
               font-weight: bold;
               color: #0000004d;
@@ -55,8 +56,8 @@
           }
           i{
             position: absolute;
-            top: 15px;
-            left: 10px;
+            top: 13px;
+            left: 15px;
           }
         }
         .cta-filter{
@@ -65,12 +66,18 @@
           font-weight: bold;
           transform: scale(1);
           transition: all 0.2s ease-in-out;
+          height: 40px;
           &:hover{
             transform: scale(1.05);
           }
           &:active{
             transform: scale(0.98);
           }
+          &.add{
+            background-color: var(--green-dark);
+            color: white;
+          }
+
         }
         button{
           color: var(--green-dark-2);
@@ -78,6 +85,21 @@
           transform: scale(1.2);
         }
       }
+    }
+  }
+  .loading{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    background-color: var(--padrao-grey);
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    &::ng-deep .mat-progress-spinner circle{
+      stroke: var(--green);
     }
   }
 }
@@ -99,7 +121,7 @@
 }
 
 .column {
-  width: 330px;
+  min-width: 330px;
   max-width: 100%;
   margin: 0 25px 25px 0;
   display: flex;
@@ -138,123 +160,12 @@
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  row-gap: 5px;
-  background: white;
-  color: var(--padrao-dark);
-  font-size: 14px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 0;
-  cursor: pointer;
-  width: 320px;
-  .sb{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .category{
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: var(--padrao-dark-2);
-      border: 1px solid var(--padrao-dark-2);
-      border-radius: 5px;
-      padding: 3px;
-    }
-    .flex{
-      column-gap: 10px;
-    }
-    .fa-calendar{
-      font-size: 18px;
-      margin-top: -7px;
-    }
-  }
-  .title{
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .description {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: inline-block;
-  }
-  label{
-    font-size: 11px;
-    color: var(--padrao-dark-2);
-    margin-bottom: -3px;
-    display: flex;
-    &.right{
-      justify-content: flex-end;
-    }
-  }
-  .divider{
-    width: 100%;
-    position: relative;
-    height: 20px;
-    display: flex;
-    &::after{
-      content: "Acompanhamento";
-      position: absolute;
-      left: 0;
-      height: 12px;
-      color: var(--padrao-dark-2);
-      background: white;
-      padding: 0 3px;
-    }
-    &::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      width: 319px;
-      height: 1px;
-      background-color: var(--padrao-grey);
-      top: 10px;
-      left: -20px
-    }
-  }
-  .fa-clock{
-    margin-top: 8px;
-    font-size: 16px;
-  }
-  .time-status{
-    height: 24px;
-    display: flex;
-    text-align: center;
-    padding: 0 15px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 12px;
-    align-items: center;
-    @include setColors(var(--green-dark), white)
-  }
-  .member-list{
-    justify-content: flex-end;
-    margin-top: 3px;
-    .member{
-      border-radius: 50%;
-      @include setColors(var(--padrao-dark-2), white);
-      height: 20px;
-      width: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      display: grid;
-      place-items: center;
-    }
-  }
-}
-
 .cdk-drag-preview {
-  //Extend porque perde os estilos quando está sendo arrastado
-  @extend .card;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
 }
 
-.cdk-drag-placeholder {
+::ng-deep .cdk-drag-placeholder {
   opacity: 0;
 }
 

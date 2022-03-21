@@ -12,6 +12,9 @@ import { CounterComponent } from './components/counter/counter.component';
 import { KanbanPanelComponent } from './components/kanban-panel/kanban-panel.component';
 import { UnderConstructionComponent } from './components/under-construction/under-construction';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogCadastrarTarefa } from './shared/dialog/cadastrar-tarefa/cadastrar-tarefa.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { CardComponent } from './shared/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     CounterComponent,
     KanbanPanelComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    DialogCadastrarTarefa,
+    CardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ])

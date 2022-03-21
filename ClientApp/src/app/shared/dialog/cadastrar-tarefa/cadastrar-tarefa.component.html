@@ -1,0 +1,77 @@
+<!-- <div class="dialog-bg"> -->
+  <div class="dialog-container">
+    <span mat-dialog-title>Cadastrar nova tarefa</span>
+    <form mat-dialog-content [formGroup]="form" (ngSubmit)="save()">
+      <!-- <mat-accordion style="grid-column: 1 / -1;">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Descricao
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <textarea type="text" [(ngModel)]="data.descricao"></textarea>
+        </mat-expansion-panel>
+      </mat-accordion> -->
+
+      <div class="input-container">
+        <label class="required">Titulo</label>
+        <input type="text" formControlName="titulo" [ngClass]="{ 'error' : saveAttempted && form.get('titulo')?.invalid }">
+        <span class="form-input-error" *ngIf="saveAttempted && form.get('titulo')?.invalid">
+          Informe um <b>Título</b>
+        </span>
+      </div>
+      <div class="input-container w100">
+        <label class="required">Descrição</label>
+        <textarea type="text" formControlName="descricao" [ngClass]="{ 'error' : saveAttempted && form.get('descricao')?.invalid }"></textarea>
+        <span class="form-input-error" *ngIf="saveAttempted && form.get('descricao')?.invalid">
+          Informe uma <b>Descrição</b>
+        </span>
+      </div>
+      <div class="input-container">
+        <label class="required">Projeto</label>
+        <input type="text" formControlName="projeto" [ngClass]="{ 'error' : saveAttempted && form.get('projeto')?.invalid }">
+        <span class="form-input-error" *ngIf="saveAttempted && form.get('projeto')?.invalid">
+          Informe um <b>Projeto</b>
+        </span>
+      </div>
+      <div class="input-container">
+        <label class="required">Categoria</label>
+        <select formControlName="categoria" [ngClass]="{ 'error' : saveAttempted && form.get('categoria')?.invalid }">
+          <option *ngFor="let item of categorias" [value]="item">
+            {{item}}
+          </option>
+        </select>
+        <span class="form-input-error" *ngIf="saveAttempted && form.get('categoria')?.invalid">
+          Informe uma <b>Categoria</b>
+        </span>
+      </div>
+      <div class="input-container">
+        <label class="required">Data prevista</label>
+        <input type="date" formControlName="dataPrevista" [ngClass]="{ 'error' : saveAttempted && form.get('dataPrevista')?.invalid }">
+        <span class="form-input-error" *ngIf="saveAttempted && form.get('categoria')?.invalid">
+          Informe uma <b>Data Prevista</b>
+        </span>
+      </div>
+      <div class="input-container">
+        <label>Previsto</label>
+        <input type="text" formControlName="previsto" placeholder="00:00" mask="00:00">
+      </div>
+      <div class="input-container">
+        <label>Saldo</label>
+        <input type="text" formControlName="saldo" [disabled]="true">
+      </div>
+      <div class="input-container">
+        <label>Equipe <i class="fa-solid fa-circle-question" matTooltip="Adicionar o nome dos integrantes separados por vírgula" [matTooltipPosition]="'above'"></i></label>
+        <input type="text" formControlName="equipe">
+      </div>
+      <span class="form-input-error" *ngIf="saveAttempted && form.get('equipe')?.invalid">
+        Informe uma descrição pra tarefa
+      </span>
+    </form>
+    <div mat-dialog-actions>
+      <button mat-button class="cancel" (click)="cancel()">Cancelar</button>
+      <button mat-button class="add" type="submit" (click)="save()" [disabled]="false" cdkFocusInitial>Cadastrar</button>
+    </div>
+  </div>
+<!-- </div> -->

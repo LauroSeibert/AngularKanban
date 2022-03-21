@@ -1,0 +1,101 @@
+@import url("../../../../assets/styles/_colors.scss");
+
+@mixin setColors($bg, $color) {
+  background-color: $bg;
+  color: $color;
+}
+
+::ng-deep.mat-dialog-container{
+  padding: 15px;
+}
+
+.dialog-container{
+  @include setColors(var(--green), var(--padrao-dark));
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: 700px;
+  .mat-dialog-title{
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .mat-dialog-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    padding: 0;
+    margin: 0;
+    overflow: inherit;
+    input, select, textarea{
+      width: 100%;
+    }
+    .input-container{
+      display: flex;
+      flex-direction: column;
+      &.w100{
+        grid-column: 1 / -1;
+      }
+      input, select, textarea{
+        &.error{
+          border: 1px solid var(--bs-red);
+        }
+      }
+    }
+  }
+  .mat-dialog-actions{
+    margin: 20px 0 0 0;
+    padding: 0;
+    min-height: max-content;
+    justify-content: flex-end;
+    button{
+      font-weight: 600;
+      color: white;
+    }
+    .cancel{
+      background-color: var(--bs-red);
+    }
+    .add{
+      background-color: var(--green-dark);
+      &:disabled{
+        background-color: grey;
+      }
+    }
+
+  }
+}
+
+.form-input-error{
+  color: var(--bs-red);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 2px;
+  transition: all 0.3s ease-in-out;
+  animation-name: showError;
+  animation-fill-mode: backwards;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes showError {
+  from {
+    display: none;
+    opacity: 0;
+  }
+
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+label{
+  width: max-content;
+  &.required{
+    position: relative;
+    &::after{
+      content: "*";
+      position: absolute;
+      right: -10px;
+      color: var(--bs-red);
+    }
+  }
+}

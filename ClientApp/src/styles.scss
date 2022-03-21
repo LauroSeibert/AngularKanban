@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 @import url("./assets/styles/_colors.scss");
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 $font:'Montserrat', sans-serif;
 
@@ -101,16 +102,25 @@ a{
   font-size: 0.9em;
 }
 
-input, select{
+input, select, textarea{
   border: 0;
   border-radius: 5px;
-  box-shadow: 0px 3px 6px var(--padrao-dark-3);
+  box-shadow: 0px 3px 3px var(--padrao-dark-3);
   color: var(--padrao-dark);
   padding: 3px 10px;
   height: 30px;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid var(--padrao-dark-3);
   &:focus{
     outline: none;
+    box-shadow: 0px 8px 12px var(--padrao-dark-3);
   }
+}
+
+textarea{
+  transition: none;
+  max-height: 200px;
+  height: 100px;
 }
 
 .flex{

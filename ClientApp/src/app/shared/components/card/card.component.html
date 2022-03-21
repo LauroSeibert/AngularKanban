@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="sb">
+    <div class="category">
+      {{data.categoria}}
+    </div>
+    <div class="flex-column">
+      <label class="right">Codigo:</label>
+      #{{data.codigo}}
+    </div>
+  </div>
+  <span class="title">
+    {{data.titulo}}
+  </span>
+  <div class="sb">
+    <div class="flex-column">
+      <label>Projeto:</label>
+      <span class="title">
+        {{data.projeto}}
+      </span>
+    </div>
+    <div class="flex-column">
+      <label class="right">Prevista:</label>
+      <div class="flex">
+        <i class="fa-regular fa-calendar"></i>
+        {{data.dataPrevista.toString().substring(0, 10)}}
+      </div>
+    </div>
+  </div>
+  <div class="flex-column">
+    <label>Descrição</label>
+    <span class="description">
+      {{data.descricao}}
+    </span>
+  </div>
+  <div class="divider"></div>
+  <div class="sb">
+    <div class="flex">
+      <i class="fa-regular fa-clock"></i>
+      <div class="flex-column">
+        <label>Previsto</label>
+        {{data.previsto}}
+      </div>
+    </div>
+    <div class="time-status" [ngClass]="getTimeStatus().color">
+       {{getTimeStatus().text}}
+    </div>
+  </div>
+  <div class="sb">
+    <div class="flex">
+      <i class="fa-regular fa-clock"></i>
+      <div class="flex-column">
+        <label>Saldo</label>
+        <div class="time-status-clock" [ngClass]="getTimeStatus().color">
+          {{data.saldo}}
+        </div>
+      </div>
+    </div>
+    <div class="flex-column">
+       <label>Equipe:</label>
+       <div class="flex member-list">
+         <div class="member" *ngFor="let item of data.equipe">
+          {{getEquipeMember(item)}}
+         </div>
+       </div>
+    </div>
+  </div>
+</div>
